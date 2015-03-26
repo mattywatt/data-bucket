@@ -1,6 +1,15 @@
 # data-bucket
 Store data and make charts.
 
+# Requirements
+
+```
+pip install flask
+pip install pymongo
+pip install jsonschema
+pip install passlib
+```
+
 # API Usage
 
 Firstly a token is required to use the API, a username and password can be used to get a token from `/api/login`:
@@ -20,7 +29,7 @@ The response will include the **token** which must be provided with the Authoriz
   "user_id": "5510c27a8cec086170ece1d3" }
 ```
 
-A request to `/api/data/<data_id>` would look like:
+A request to `/api/data/<data_id>`
 
 ```
 curl  -H "Content-Type: application/json"
@@ -28,4 +37,4 @@ curl  -H "Content-Type: application/json"
       http://localhost:5000/api/data/5511fee68cec086643f269a6
 ```
 
-/api/data/history/<data_id>
+And a request to `/api/data/history/<data_id>`
