@@ -1,0 +1,19 @@
+.input-wrapper {
+	position: relative;
+	.validation-message {
+		@include message-box(#c04848);
+		position: absolute;
+		left: -283px;
+		top: 7px;
+		opacity: 0;
+	}
+	.in {
+		opacity: 1;
+		@include transform(translateX(6px));
+	}
+	input {
+		border: 1px solid #ddd;
+		background: none;
+		padding: 10px;
+	}
+}

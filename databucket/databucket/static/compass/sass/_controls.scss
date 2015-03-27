@@ -1,0 +1,25 @@
+
+@mixin button($color, $hover-color, $width) {
+	@include border-radius(4px, 4px);
+	background-color: $color;
+	width: $width;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $hover-color;
+	}
+}
+
+@mixin message-box($background-color) {
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+	
+	background-color: $background-color;
+	color: #fff;
+	padding: 10px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3)
+}

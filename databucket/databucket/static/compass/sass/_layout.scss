@@ -1,0 +1,12 @@
+
+@mixin container($width) {
+	margin: 0 auto;
+	width: $width;
+}
+
+@mixin content-panel($background-colour, $border-colour, $width, $height) {
+	background-color: $background-colour;
+	border: 1px solid $border-colour;
+	width: $width;
+	height: $height;
+}

@@ -1,0 +1,53 @@
+.register-content {
+	@include container($upload-preview-page-width);
+	margin-top: $navigation-offset-height + 30;
+
+	td {
+		padding: 10px 5px;
+	}
+
+}
+
+
+.register-form-container {
+	@include container(36%);
+	.register-info {
+		text-align: center;
+		padding: 20px;
+		border-bottom: 1px solid #eee;
+	}
+	.register-input-container {
+		padding: 20px;
+	}
+	
+	color: #888;
+	font-size: 12px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+
+	.form-btn {
+		margin: 10px auto 0 auto;
+		padding: 12px;
+		
+	}
+	.register-btn {
+		@include button(#6cbd7d, #64ba76, 80%);
+		@extend .form-btn;
+	}
+	.login-btn {
+		@include button(purple, orange, 80%);
+		@extend .form-btn;
+	}
+
+	input {
+		width: 80%;
+		display: block;
+		margin: 0 auto;
+		@include border-radius(4px);
+	}
+
+	.input-wrapper {
+		padding: 5px 0;
+	}
+
+}

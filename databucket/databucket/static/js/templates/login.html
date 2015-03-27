@@ -1,0 +1,44 @@
+<div class="register-content">
+
+	<div class="register-form-container">
+		<div class="register-info">
+			<h1>Create your account. It's free!</h1>
+			<br>
+			<div class="light-text">Already have an account? Then <a href="#/login">login here.</a></div>
+		</div>
+		<div class="register-input-container">
+
+			<form name="loginform" ng-submit="submit()">
+				<div class="input-wrapper">
+
+					<input name="username" placeholder="Username" ng-model="user.username" ng-minlength="2" ng-maxlength="12" />
+					<div ng-class="{ 'in': loginform.username.$touched && loginform.username.$error.minlength }" class="validation-message">Minimum 2 characters required for username field!</div>
+					<div ng-class="{ 'in': loginform.username.$touched && loginform.username.$error.maxlength }" class="validation-message">Maximum 12 characters allowed for username field!</div>
+
+				</div>
+				<div class="input-wrapper">
+
+					<input name="password" placeholder="Password" ng-model="user.password" ng-minlength="5" ng-maxlength="15" />
+					<div ng-class="{ 'in': loginform.password.$touched && loginform.password.$error.minlength }" class="validation-message">Minimum 6 characters required for password field!</div>
+					<div ng-class="{ 'in': loginform.password.$touched && loginform.password.$error.maxlength }" class="validation-message">Maximum 12 characters allowed for password field!</div>
+
+				</div>
+			</form>
+
+
+
+
+			<div class="login-btn" ng-click="submit()">Login</div>
+
+			<!-- Switch to login form -->
+			<div class="switch-login-container">
+				<div class="register-btn" ng-click="toRegister()">Register</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</div>

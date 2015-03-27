@@ -1,0 +1,73 @@
+<div class="upload-preview-content">
+
+  <div class="chart-container">
+    <!--
+    the directive creates a new isolate/isolated scope. It does not prototypically inherit the parent scope.
+    You can still access the parent scope using $parent, but this is not normally recommended.
+    Instead, you should specify which parent scope properties (and/or function) the directive needs via additional
+    attributes on the same element where the directive is used, using the =, @, and & notation.
+    -->
+    <chart chart-data="chartData"></chart>
+    <axis chart-data="chartData"></axis>
+  </div>
+
+  <div class="content-wrap">
+
+
+    <div class="point-list-container">
+      <table>
+        <thead></thead>
+        <tbody>
+          <tr ng-repeat="data in dataList">
+            <td><% data.x %></td>
+            <td><% data.y %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-panel-container">
+      <div class="tab-panel">
+        <div class="tabs">
+          <!--<div class="tab" ng-class="{'active':activeTab === 'datalist'}" ng-click="activeTab = 'datalist'">Data</div>-->
+          <div class="tab" ng-class="{'active':activeTab === 'activity'}" ng-click="activeTab = 'activity'; fetchActivity()">Activity</div>
+          <div class="tab" ng-class="{'active':activeTab === 'comments'}" ng-click="activeTab = 'comments'">Comments</div>
+        </div>
+        <div class="tab-content-container">
+          <!-- Data list -->
+
+          <!-- Activity feed -->
+          <div class="tab-content" ng-show="activeTab === 'activity'">
+            <h1>Activity</h1>
+            <ul class="data-activity-list">
+              <li ng-repeat="activity in activities">
+                <% activity.username %> did an HTTP <span class="activity-http-type"><% activity.http_action %></span> on this data at <% activity.timestamp %>
+              </li>
+            </ul>
+          </div>
+          <!-- Comments -->
+          <div class="tab-content" ng-show="activeTab === 'comments'">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- End content wrap -->
+
+<!-- Page Loading Overlay -->
+<div class="page-loading-overlay" ng-show="isLoading">
+  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+  <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+    <animateTransform attributeType="xml"
+      attributeName="transform"
+      type="rotate"
+      from="0 25 25"
+      to="360 25 25"
+      dur="0.6s"
+      repeatCount="indefinite"/>
+    </path>
+  </svg>
+</div>

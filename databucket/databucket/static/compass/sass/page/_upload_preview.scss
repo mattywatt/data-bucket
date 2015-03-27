@@ -1,0 +1,87 @@
+.upload-preview-content {
+	margin-top: $navigation-offset-height;
+
+	.chart-container {
+		@include container(960px);
+		chart {
+			display: block;
+			width: $chart-width;
+		}
+	}
+
+	.content-wrap {
+		background-color: #f8f8f8;
+		border-top: 1px solid #ddd;
+		position: relative;
+		min-height: 500px;
+
+		.point-list-container {
+			position: absolute;
+			left: 0;
+			width: 350px;
+			height: 100%; // height rule is required for scroll
+			overflow-y: scroll;
+		}
+	}
+
+	.data-activity-list li {
+		padding: 8px 0;
+	}
+
+	.activity-http-type {
+		background-color: $validation-colour;
+		color: #fff;
+		padding: 2px 4px;
+	}
+
+	.tab-panel-container {
+		margin-left: 380px; // offset for data list
+		padding-top: 20px;
+		.tab-panel {
+			@include container(830px);
+			.tabs {
+				height: 36px;
+				.tab:first-child {
+					margin-left: 10px;
+				}
+				.tab {
+					background-color: #fff;
+					padding: 11px 16px;
+					margin-right: 4px;
+					float: left;
+					border: 1px solid #ddd;
+					font-weight: bold;
+					background-color: #e8e8e8;
+				}
+				.active {
+					border-bottom: 1px solid #fff;
+					background-color: #fff;
+				}
+			}
+			.tab-content-container {
+				@include content-panel(#fff, #ddd, 640px, 100%);
+				.tab-content {
+					background-color: #fff;
+					padding: 20px;
+				}
+			}
+		}
+	}
+	table {
+		border-collapse: separate; // override collapse from reset, collapse doesn't allow border radius
+		width: 100%;
+	}
+
+	td {
+		font-size: 13px;
+		padding: 10px 24px 8px 50px;
+	}
+
+	tr:nth-child(even) td {
+		background-color: #ecebe8;
+	}
+
+	tr:last-child td {
+		border-bottom: 1px solid #eee;
+	}
+}

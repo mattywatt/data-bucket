@@ -1,0 +1,196 @@
+
+// File Upload Form
+
+span.indent-code {
+	padding-left: $code-indent;
+}
+
+span.indent-code-2 {
+	padding-left: $code-indent * 2;
+}
+
+span.indent-code-3 {
+	padding-left: $code-indent * 3;
+}
+
+.upload-content {
+	margin-top: $navigation-offset-height;
+}
+
+// TODO: this is actually the upload top section rename it soon
+
+.upload-bar {
+	border-bottom: 1px solid #eee;
+	width: 100%;
+	z-index: 999;
+	height: 130px;
+	background: #fff;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+}
+
+.upload-bar-stick {
+	position: fixed;
+	top: 0;
+	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+.upload-form-content {
+	background: #fff;
+	height: 249px; // height is needed so file guide remains same distance from top when form becomes pinned/fixed
+}
+
+.upload-head {
+	text-align: center;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.upload-head-container {
+	margin-top: 20px;
+}
+
+.upload-head-title {
+	font-size: 15px;
+}
+
+.upload-head-icon {
+	font-size: 38px;
+}
+
+.upload-tip {
+	text-align: center;
+	font-size: 15px;
+	margin: 20px;
+}
+
+.input-container {
+	position: relative;
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 500px;
+	height: 50px;
+}
+
+.fileinput-container {
+	width: 240px;
+	height: 38px;
+	border: 1px solid #e1e1e1;
+	border-radius: 4px;
+	position: absolute;
+	top: 0;
+	width: 400px;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.fileinput-name {
+	line-height: 38px;
+	padding-left: 8px;
+	float: left;
+	width: 200px;
+}
+
+.fileinput-button {
+	float: right;
+	background-color: #ececec;
+	border-left: 1px solid #e1e1e1;
+	line-height: 38px;
+	text-align: center;
+	width: 100px;
+}
+
+.fileinput-input {
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	height: 38px;
+	width: 500px;
+	cursor: pointer;
+}
+
+.upload-actions {
+	margin-top: 22px;
+}
+
+.upload-btn {
+	margin: 0 auto;
+	padding: 10px;
+	@include button(#6cbd7d, #64ba76, 80px);
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+// File Format Guide
+
+.file-guide {
+	min-height: 1020px;
+	position: absolute;
+	top: 301px;
+	width: 100%;
+	
+}
+
+.file-guide-content {
+	@include container($page-width);
+}
+
+.fileformat-menu {
+	padding-top: 20px;
+	width: 100px;
+	float: left;
+	li {
+		padding: 4px 0 0 0;
+	}
+}
+
+
+.fileformat-content {
+	margin-left: 200px;
+	border-left: 1px solid #eee;
+	padding: 10px 0 0 20px;
+	min-height: 1000px;
+}
+
+.stick {
+	position: fixed;
+	top: 123px;
+	transform: translateZ(0);
+}
+
+.choose-file-instick {
+	transform: translateY(70px);
+}
+
+.upload-btn-instick {
+	transform: translateX(225px);
+}
+
+.code-example-container {
+	padding: 0;
+	margin-left: 20px;
+	border: 1px solid $section-border-light-colour;
+
+	.code-example-topbar {
+		border-bottom: 1px solid $section-border-light-colour;
+		padding: 8px;
+	}
+	.code-example {
+		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		font-size: 12px;
+		padding: 20px;
+	}
+}
+
+.data-type-section {
+	padding: 20px 0 0 0;
+}
+
+.data-type-desc {
+	padding: 20px 0 20px 0;
+}

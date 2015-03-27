@@ -1,0 +1,22 @@
+text {
+	stroke-width: .1;
+	font-size: 11px;	
+}
+
+path {
+	fill: #c2dce4;
+	stroke-width: 1;	
+}
+
+axis {
+	position: relative;
+	display: block;
+	width: $chart-width;
+	height: 50px;
+}
+
+.x-tick {
+	position: absolute;
+	font-size: 11px;
+	color: #888;
+}

@@ -1,0 +1,10 @@
+.notification-container {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	.notification-event {
+		@include message-box(#c04848);
+		top: 100px;
+		left: 200px;
+	}
+}

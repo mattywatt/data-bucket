@@ -1,0 +1,117 @@
+<div class="upload-content">
+
+  <div class="upload-form-content">
+    <form>
+      <div class="upload-head-container">
+        <div class="upload-head" upload-control-panel="">
+          <div class="icon-cloud-upload6 upload-head-icon"></div>
+          <span class="upload-head-title">UPLOAD DATA</span>
+        </div>
+      </div>
+      <div class="upload-tip">
+        Choose a file with JSON format to upload. File size must not exceed 20MB.
+      </div>
+
+      <div class="upload-bar" ng-class="{ 'upload-bar-stick': pinUpload == true }">
+
+        <div class="input-container">
+          <div class="fileinput-container" ng-class="{ 'choose-file-instick': pinUpload == true }">
+            <div class="fileinput-name"></div>
+            <div class="fileinput-button">Choose File</div>
+          </div>
+          <input type="file" name="data" class="fileinput-input" ng-class="{ 'choose-file-instick': pinUpload == true }">
+
+          <div class="helper-message" help-message="1+1" ng-class="{ 'in': uploadError }"></div>
+
+        </div>
+        <div class="upload-actions">
+          <div class="upload-btn" ng-click="uploadSubmit()" ng-class="{ 'upload-btn-instick': pinUpload == true }">Upload</div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+  <!-- File format sticky sidebar | File format content -->
+
+  <div class="file-guide-content">
+  
+    <div class="fileformat-menu" ng-class="{ 'stick': pinFileMenu == true }">
+      <div><h1>DATA TYPE</h1></div>
+      <ul>
+        <li><a ng-click="scrollTo('date')">Date</a></li>
+        <li><a ng-click="scrollTo('fiscalYear')">Fiscal Year</a></li>
+        <li><a ng-click="scrollTo('year')">Year</a></li>
+        <li><a ng-click="scrollTo('time')">Time</a></li>
+      </ul>
+    </div>
+    <div class="fileformat-content">
+      
+      <div class="data-type-section" id="date">
+        <h1>Date</h1>
+        <div class="data-type-desc">
+          The date type takes a date for the <span>X axis</span> in format Javascript (ISO-Bla-Eg)
+        </div>
+        <div class="code-example-container">
+          <div class="code-example-topbar">
+            Example
+          </div>
+          <div class="code-example">
+            { <br>
+              <span class="indent-code"></span> "xType": "date", <br>
+              <span class="indent-code"></span> "data": [ <br>
+              <!-- { x: ..., y: ..., reference: ... } -->
+              <span class="indent-code-2"></span>{ </br>
+              <span class="indent-code-3"></span>"x": Fri Mar 13 2015 12:17:55 GMT+1000 (AEST), <br>
+              <span class="indent-code-3"></span>"y": 10, <br>
+              <span class="indent-code-3"></span>"references": ["google.com", "reddit.com"], <br>
+              <span class="indent-code-2"></span>}, <br>
+              <!-- { x: ..., y: ..., reference: ... } -->
+              <span class="indent-code-2"></span>{ </br>
+              <span class="indent-code-3"></span>"x": Fri Mar 13 2015 12:17:55 GMT+1000 (AEST), <br>
+              <span class="indent-code-3"></span>"y": 10, <br>
+              <span class="indent-code-3"></span>"references": ["foo.com", "bar.com"], <br>
+              <span class="indent-code-2"></span>} <br>
+
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Fiscal Year -->
+      <div class="data-type-section" id="fiscalYear">
+        <h1>Fiscal Year</h1>
+        <div class="data-type-desc">
+          The date type takes a date for the <span>X axis</span> in format Javascript (ISO-Bla-Eg)
+        </div>
+        <div class="code-example-container">
+          <div class="code-example-topbar">
+            Example
+          </div>
+          <div class="code-example">
+            { <br>
+              <span class="indent-code"></span> "xType": "fiscal_year", <br>
+              <span class="indent-code"></span> "data": [ <br>
+              <!-- { x: ..., y: ..., reference: ... } -->
+              <span class="indent-code-2"></span>{ </br>
+              <span class="indent-code-3"></span>"x": 2007 <br>
+              <span class="indent-code-3"></span>"y": 10, <br>
+              <span class="indent-code-3"></span>"references": ["google.com", "reddit.com"], <br>
+              <span class="indent-code-2"></span>}, <br>
+              <!-- { x: ..., y: ..., reference: ... } -->
+              <span class="indent-code-2"></span>{ </br>
+              <span class="indent-code-3"></span>"x": 2008 <br>
+              <span class="indent-code-3"></span>"y": 12, <br>
+              <span class="indent-code-3"></span>"references": ["foo.com", "bar.com"], <br>
+              <span class="indent-code-2"></span>} <br>
+
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

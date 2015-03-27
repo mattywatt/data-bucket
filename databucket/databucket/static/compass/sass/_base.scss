@@ -1,0 +1,30 @@
+$navigation-offset-height: 44px;
+$font-stack: Roboto, sans-serif;
+$primary-colour: #444;
+$page-width: 960px;
+$section-border-light-colour: #eee;
+$validation-colour: #c04848;
+
+$upload-preview-content-width: 300px;
+$upload-preview-page-width: 960px;
+$data-list-width: 300px;
+$chart-width: 960px;
+$screen-medium: 960px;
+
+$code-indent: 25px;
+ 
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "layout";
+
+// Pages and page components
+@import "controls";
+@import "chart";
+@import "icons";
+@import "nav";
+@import "notifications";
+@import "page/upload";
+@import "page/upload_preview";
+@import "page/register";
+@import "page/login";

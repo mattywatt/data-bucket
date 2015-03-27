@@ -1,0 +1,31 @@
+<div class="register-content">
+
+	<div class="register-form-container">
+		<div class="register-info">
+			<h1>Create your account. It's free!</h1>
+			<br>
+			<div class="light-text">Already have an account? Then <a href="#/login">login here.</a></div>
+		</div>
+		<div class="register-input-container">
+			<form ng-submit="submit()">
+				<div class="input-wrapper">
+					<input placeholder="Username" ng-model="user.username" type="textbox" />
+				</div>
+				<div class="input-wrapper">
+					<input placeholder="Password" ng-model="user.password" type="textbox" />
+				</div>
+			</form>
+			<div class="register-btn" ng-click="submit()">Create Account</div>
+
+			<!-- Switch to login form -->
+			<div class="switch-login-container">
+				<div class="login-btn" ng-click="toLogin()">Login</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</div>
