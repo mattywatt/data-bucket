@@ -11,11 +11,11 @@ class DataSet:
 		self.db = current_app.db
 
 	def create(self, **kwargs):
-		dataSet = {	'title': kwargs['title'],
-					'data': kwargs['data'],
-					'data_type': kwargs['x_format'],
-					'user_id': kwargs['user_id'],
-					'timestamp': datetime.now() }
+		dataSet = { 'title': kwargs['title'],
+			    'data': kwargs['data'],
+			    'data_type': kwargs['x_format'],
+			    'user_id': kwargs['user_id'],
+			    'timestamp': datetime.now() }
 		dataSetId = self.db.data.insert(dataSet)
 		return str(dataSetId)
 
@@ -38,10 +38,10 @@ class DataActivity:
 
 	def create(self, **kwargs):
 		activity = { 'data_id': ObjectId(kwargs['data_id']),
-					 'http_action': kwargs['http_action'],
-					 'user_id': kwargs['user_id'],
-					 'username': kwargs['username'],
-					 'timestamp': datetime.now() }
+			     'http_action': kwargs['http_action'],
+			     'user_id': kwargs['user_id'],
+			     'username': kwargs['username'],
+			     'timestamp': datetime.now() }
 		activityId = self.db.dataActivity.insert(activity)
 
 	def get(self, **kwargs):
