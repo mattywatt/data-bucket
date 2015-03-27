@@ -43,19 +43,29 @@ def requires_auth(f):
 	return decorated
 
 @app.route('/api/data', methods=['POST'])
+@requires_auth
 def post_data():
-	dataSetDict = request.get_json()
+	postDict = request.get_json()
 	validator = Validation()
-	errorsResp = validator.validate(x_format='date-time', data=dataSetDict)
+	# validation not complete yet
+	errorsResp = validator.validate(x_format='date-time', data=postDict)
 	if not errorsResp:
+		authStr = request.headers.get('Authorization')
+		userId = check_auth(authStr) # get user id out of token
+		user = User() # regret choosing nosql
+		userDict = user.get(user_id=userId)
 		dataSet = DataSet()
-		dataSetId = dataSet.create(data=dataSetDict.get('data'),
-								   data_type=dataSetDict.get('data_type'),
-								   title=dataSetDict.get('title'))
-		if dataSetId:
+		dataId = dataSet.create(data=postDict['data'],
+								x_format=postDict['x_format'],
+								title=postDict['title'],
+								user_id=userId)
+		if dataId:
 			dataActivity = DataActivity()
-			dataActivity.create(data_set_id=dataSetId, http_action='POST')
-		respDict = { 'id': dataSetId }
+			dataActivity.create(data_id=dataId,
+								user_id=userId,
+								username=userDict['username'],
+								http_action='POST')
+		respDict = { 'id': dataId }
 		# insert id is included in response
 		return json.dumps(respDict, default=json_util.default)
 	else:

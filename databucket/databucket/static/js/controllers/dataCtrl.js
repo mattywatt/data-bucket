@@ -27,8 +27,10 @@ function($scope, $http, $location, $routeParams) {
 				// data from /data/<id> ajax
 				data: data.data
 			};
-			// Data list
+			// Data list (for bottom left section)
 			$scope.dataList = data.data;
+			$scope.title = data.title;
+			
 		}).
 		error(function(data, status, headers, config) {
 

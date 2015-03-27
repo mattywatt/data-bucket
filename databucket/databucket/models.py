@@ -8,40 +8,28 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, Signatur
 class DataSet:
 
 	def __init__(self):
-		# Fairly sure using db from app instance
-		# lets pymongo handle connections with one client.
 		self.db = current_app.db
 
 	def create(self, **kwargs):
-		dataSet = {'title': kwargs.get('title'),
-				   'data': kwargs.get('data'),
-				   'data_type': kwargs.get('data_type'),
-				   'user_id': kwargs.get('user_id')}
-		try:
-			dataSetId = self.db.data.insert(dataSet)
-			return str(dataSetId)
-		except Exception as e:
-			print e
-			return None
+		dataSet = {	'title': kwargs['title'],
+					'data': kwargs['data'],
+					'data_type': kwargs['x_format'],
+					'user_id': kwargs['user_id'],
+					'timestamp': datetime.now() }
+		dataSetId = self.db.data.insert(dataSet)
+		return str(dataSetId)
 
 	def get(self, **kwargs):
-		dataId = kwargs.get('id')
-		try:
-			dataSetDict = self.db.data.find_one({ '_id': ObjectId(dataId) })
-			return dataSetDict
-		except Exception as e:
-			print e
-			return None
+		dataId = kwargs['id']
+		dataSetDict = self.db.data.find_one({ '_id': ObjectId(dataId) })
+		return dataSetDict
 
 	def update(self, **kwargs):
 		updateDict = kwargs['update_with']
-		dataId = kwargs['data_id']
-		try:
-			upd = self.db.data.update({ "_id": ObjectId(dataId) }, { '$set': updateDict })
-			return upd
-		except Exception as e:
-			print e
-			return None
+		dataId = kwargs['data_id']	
+		upd = self.db.data.update({ "_id": ObjectId(dataId) }, { '$set': updateDict })
+		return upd
+
 
 class DataActivity:
 
@@ -54,29 +42,22 @@ class DataActivity:
 					 'user_id': kwargs['user_id'],
 					 'username': kwargs['username'],
 					 'timestamp': datetime.now() }
-		try:
-			activityId = self.db.dataActivity.insert(activity)
-		except Exception as e:
-			print e
-			return None
+		activityId = self.db.dataActivity.insert(activity)
 
 	def get(self, **kwargs):
-		try:
-			queryCursor = self.db.dataActivity.find({ 'data_id': ObjectId(kwargs['data_id']) })
-			# convert each ObjectId of data_set_id to string and timestamp to string
-			activities = []
-			for doc in queryCursor:
-				activity = {}
-				activity['http_action'] = doc.get('http_action')
-				activity['data_id'] = str(doc.get('data_id'))
-				activity['timestamp'] = str(doc.get('timestamp'))
-				activity['username'] = doc.get('username')
-				activity['user_id'] = doc.get('user_id')
-				activities.append(activity);
-			return activities
-		except Exception as e:
-			print e
-			return None
+		queryCursor = self.db.dataActivity.find({ 'data_id': ObjectId(kwargs['data_id']) })
+		# convert each ObjectId of data_set_id to string and timestamp to string
+		activities = []
+		for doc in queryCursor:
+			activity = {}
+			activity['http_action'] = doc['http_action']
+			activity['data_id'] = str(doc['data_id'])
+			activity['timestamp'] = str(doc['timestamp'])
+			activity['username'] = doc['username']
+			activity['user_id'] = doc['user_id']
+			activities.append(activity);
+		return activities
+	
 
 class User:
 
@@ -100,12 +81,8 @@ class User:
 		# hash password with salt
 		hash = sha256_crypt.encrypt(kwargs['password'])
 		userDict = { 'username': kwargs['username'], 'password': hash }
-		try:
-			userId = self.db.users.insert(userDict)
-			return str(userId)
-		except Exception as e:
-			print e
-			return None
+		userId = self.db.users.insert(userDict)
+		return str(userId)
 
 	def verify_password(self, **kwargs):
 		username = kwargs['username']
@@ -113,19 +90,15 @@ class User:
 		userDict = self.db.users.find_one({ 'username': username })
 		# if the password is verified then return user id so a token can be fetched
 		if sha256_crypt.verify(password, userDict['password']):
-			print 'password verified!!!'
 			return str(userDict['_id'])
 		else:
 			return None
 
 	def validation_errors(self, userDict):
-		# exception is thrown if these keys aren't in dictionary/posted data
-		try:
-			username = userDict['username']
-			password = userDict['password']
-		except Exception as e:
-			print e
-			return False
+		# exception is thrown if these keys aren't in dictionary/posted data	
+		username = userDict['username']
+		password = userDict['password']
+		
 		# fields validation
 		if len(username) < 2 or len(username) > 12:
 			return False

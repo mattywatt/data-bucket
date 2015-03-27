@@ -684,19 +684,23 @@ span.indent-code-3 {
   margin: 0 auto;
   width: 960px;
 }
-/* line 6, ../sass/page/_upload_preview.scss */
+/* line 5, ../sass/page/_upload_preview.scss */
+.upload-preview-content .chart-container h1 {
+  padding: 20px 0;
+}
+/* line 9, ../sass/page/_upload_preview.scss */
 .upload-preview-content .chart-container chart {
   display: block;
   width: 960px;
 }
-/* line 12, ../sass/page/_upload_preview.scss */
+/* line 15, ../sass/page/_upload_preview.scss */
 .upload-preview-content .content-wrap {
   background-color: #f8f8f8;
   border-top: 1px solid #ddd;
   position: relative;
   min-height: 500px;
 }
-/* line 18, ../sass/page/_upload_preview.scss */
+/* line 21, ../sass/page/_upload_preview.scss */
 .upload-preview-content .content-wrap .point-list-container {
   position: absolute;
   left: 0;
@@ -704,35 +708,35 @@ span.indent-code-3 {
   height: 100%;
   overflow-y: scroll;
 }
-/* line 27, ../sass/page/_upload_preview.scss */
+/* line 30, ../sass/page/_upload_preview.scss */
 .upload-preview-content .data-activity-list li {
-  padding: 8px 0;
+  padding: 15px 0;
 }
-/* line 31, ../sass/page/_upload_preview.scss */
+/* line 34, ../sass/page/_upload_preview.scss */
 .upload-preview-content .activity-http-type {
   background-color: #c04848;
   color: #fff;
   padding: 2px 4px;
 }
-/* line 37, ../sass/page/_upload_preview.scss */
+/* line 40, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container {
   margin-left: 380px;
   padding-top: 20px;
 }
-/* line 40, ../sass/page/_upload_preview.scss */
+/* line 43, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel {
   margin: 0 auto;
   width: 830px;
 }
-/* line 42, ../sass/page/_upload_preview.scss */
+/* line 45, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tabs {
   height: 36px;
 }
-/* line 44, ../sass/page/_upload_preview.scss */
+/* line 47, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tabs .tab:first-child {
   margin-left: 10px;
 }
-/* line 47, ../sass/page/_upload_preview.scss */
+/* line 50, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tabs .tab {
   background-color: #fff;
   padding: 11px 16px;
@@ -742,38 +746,38 @@ span.indent-code-3 {
   font-weight: bold;
   background-color: #e8e8e8;
 }
-/* line 56, ../sass/page/_upload_preview.scss */
+/* line 59, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tabs .active {
   border-bottom: 1px solid #fff;
   background-color: #fff;
 }
-/* line 61, ../sass/page/_upload_preview.scss */
+/* line 64, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tab-content-container {
   background-color: #fff;
   border: 1px solid #ddd;
   width: 640px;
   height: 100%;
 }
-/* line 63, ../sass/page/_upload_preview.scss */
+/* line 66, ../sass/page/_upload_preview.scss */
 .upload-preview-content .tab-panel-container .tab-panel .tab-content-container .tab-content {
   background-color: #fff;
   padding: 20px;
 }
-/* line 70, ../sass/page/_upload_preview.scss */
+/* line 73, ../sass/page/_upload_preview.scss */
 .upload-preview-content table {
   border-collapse: separate;
   width: 100%;
 }
-/* line 75, ../sass/page/_upload_preview.scss */
+/* line 78, ../sass/page/_upload_preview.scss */
 .upload-preview-content td {
   font-size: 13px;
   padding: 10px 24px 8px 50px;
 }
-/* line 80, ../sass/page/_upload_preview.scss */
+/* line 83, ../sass/page/_upload_preview.scss */
 .upload-preview-content tr:nth-child(even) td {
   background-color: #ecebe8;
 }
-/* line 84, ../sass/page/_upload_preview.scss */
+/* line 87, ../sass/page/_upload_preview.scss */
 .upload-preview-content tr:last-child td {
   border-bottom: 1px solid #eee;
 }

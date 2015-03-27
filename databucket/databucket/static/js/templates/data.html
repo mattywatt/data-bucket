@@ -1,6 +1,7 @@
 <div class="upload-preview-content">
 
   <div class="chart-container">
+    <h1><% title %></h1>
     <!--
     the directive creates a new isolate/isolated scope. It does not prototypically inherit the parent scope.
     You can still access the parent scope using $parent, but this is not normally recommended.
@@ -30,7 +31,7 @@
       <div class="tab-panel">
         <div class="tabs">
           <!--<div class="tab" ng-class="{'active':activeTab === 'datalist'}" ng-click="activeTab = 'datalist'">Data</div>-->
-          <div class="tab" ng-class="{'active':activeTab === 'activity'}" ng-click="activeTab = 'activity'; fetchActivity()">Activity</div>
+          <div class="tab" ng-class="{'active':activeTab === 'activity'}" ng-click="activeTab = 'activity'; fetchActivity()">Log</div>
           <div class="tab" ng-class="{'active':activeTab === 'comments'}" ng-click="activeTab = 'comments'">Comments</div>
         </div>
         <div class="tab-content-container">
@@ -38,7 +39,6 @@
 
           <!-- Activity feed -->
           <div class="tab-content" ng-show="activeTab === 'activity'">
-            <h1>Activity</h1>
             <ul class="data-activity-list">
               <li ng-repeat="activity in activities">
                 <% activity.username %> did an HTTP <span class="activity-http-type"><% activity.http_action %></span> on this data at <% activity.timestamp %>

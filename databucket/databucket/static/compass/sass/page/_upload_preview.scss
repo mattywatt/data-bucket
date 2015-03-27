@@ -2,6 +2,9 @@
 	margin-top: $navigation-offset-height;
 
 	.chart-container {
+		h1 {
+			padding: 20px 0;
+		}
 		@include container(960px);
 		chart {
 			display: block;
@@ -25,7 +28,7 @@
 	}
 
 	.data-activity-list li {
-		padding: 8px 0;
+		padding: 15px 0;
 	}
 
 	.activity-http-type {
