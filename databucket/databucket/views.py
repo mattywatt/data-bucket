@@ -56,15 +56,15 @@ def post_data():
 		userDict = user.get(user_id=userId)
 		dataSet = DataSet()
 		dataId = dataSet.create(data=postDict['data'],
-								x_format=postDict['x_format'],
-								title=postDict['title'],
-								user_id=userId)
+					x_format=postDict['x_format'],
+					title=postDict['title'],
+					user_id=userId)
 		if dataId:
 			dataActivity = DataActivity()
 			dataActivity.create(data_id=dataId,
-								user_id=userId,
-								username=userDict['username'],
-								http_action='POST')
+					    user_id=userId,
+					    username=userDict['username'],
+					    http_action='POST')
 		respDict = { 'id': dataId }
 		# insert id is included in response
 		return json.dumps(respDict, default=json_util.default)
@@ -107,9 +107,9 @@ def put_data(dataId):
 		userResult = user.get(user_id=userId)
 		dataActivity = DataActivity()
 		dataActivity.create(data_id=dataId,
-							http_action='PUT',
-							user_id=userId,
-							username=userResult['username'])
+				    http_action='PUT',
+				    user_id=userId,
+				    username=userResult['username'])
 		return json.dumps({}, default=json_util.default)
 	return abort(400)
 
